@@ -11,12 +11,8 @@ Use [Google's Java Style Guide](https://google.github.io/styleguide/javaguide.ht
 
 #### IntelliJ
 
-1. Download [Code Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/intellij-java-google-style.xml)
-2. Navigate to File » Settings » Editor » Code Style
-3. Gear right to 'Scheme' dropdown menu » Import Scheme » IntelliJ IDEA code style XML
-4. Select File in Dialog
-5. Apply imported Scheme in dropdown menu
-
+[Code Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/intellij-java-google-style.xml)
+is applied automatically for this project.
 
 #### Eclipse
 
