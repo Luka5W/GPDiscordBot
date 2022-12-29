@@ -1,0 +1,24 @@
+# currently used keys
+# cmd.*.dsc
+# cmd.*.msg.*
+# cmd.*.opt.*.dsc
+# cmd.*.sub.*.dsc
+# cmd.*.sub.*.msg.*
+# cmd.*.sub.*.opt.*.dsc
+
+commands.failure.unknown.title=Error While Executing Command
+commands.failure.unknown.dsc=An unexpected error occurred.
+
+cmd.ping.dsc=Checks if the bot responses
+cmd.ping.msg.success=Pong!
+cmd.status.dsc=Displays useless statistics about the bot
+cmd.status.msg.success.title=Bot Status
+cmd.status.msg.success.field.repo.name=🌐 Repository
+cmd.status.msg.success.field.contributors.name=🖋 Contributors
+cmd.status.msg.success.field.contributors.error=Cannot retrieve contributors.
+cmd.status.msg.success.field.tech.name=🧬 Tech-Stack
+cmd.status.msg.success.field.tech.value=**ProgrammingLanguage**\nJava %j\n**Bot-Version**\n%v\n(Build %b)
+cmd.status.msg.success.field.system.name=⚙️ System
+cmd.status.msg.success.field.system.value=**Uptime**\n%u\n**Start Time**\n%s
+cmd.status.msg.success.field.server.name=🎮 Server
+cmd.status.msg.success.field.server.value=**Members**\n%m/%M\n**Boosts**\n%b

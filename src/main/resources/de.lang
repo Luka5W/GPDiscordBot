@@ -1,0 +1,15 @@
+commands.failure.unknown.title=Fehler während der Ausführung des Befehls
+commands.failure.unknown.dsc=Ein unerwarteter Fehler ist aufgetreten.
+
+cmd.ping.dsc=Prüft, ob der Bot antwortet
+cmd.status.dsc=Zeigt unnütze Statistiken zum Bot an
+cmd.status.msg.success.title=Bot Status
+cmd.status.msg.success.field.repo.name=🌐 Repository
+cmd.status.msg.success.field.contributors.name=🖋 Mitwirkende
+cmd.status.msg.success.field.contributors.error=Kann keine Mitwirkende abrufen.
+cmd.status.msg.success.field.tech.name=🧬 Tech-Stack
+cmd.status.msg.success.field.tech.value=**Programmiersprache**\nJava %j\n**Bot-Version**\n%v\n(Build %b)
+cmd.status.msg.success.field.system.name=⚙️ System
+cmd.status.msg.success.field.system.value=**Betriebszeit**\n%u\n**Startzeit**\n%s
+cmd.status.msg.success.field.server.name=🎮 Server
+cmd.status.msg.success.field.server.value=**Mitglieder**\n%m/%M\n**Boosts**\n%b:

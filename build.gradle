@@ -1,21 +1,95 @@
+// TODO: 22.12.22  everything is very buggy, no idea if everything is correct. "I'll fix it
+//  tommorow…"
+
+import java.nio.charset.StandardCharsets
+
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 group 'com.luka5w.gpdiscordbot'
-version '1.0.0'
+version 'v1.0.0'
+sourceCompatibility = 1.11
 
 repositories {
     mavenCentral()
+    gradlePluginPortal()
 }
 
 dependencies {
+    implementation 'org.jetbrains:annotations:23.0.0'
+    implementation 'org.json:json:20220924'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
+    implementation 'com.typesafe:config:1.4.2'
     implementation 'org.javacord:javacord:3.7.0'
-    runtimeOnly 'org.apache.logging.log4j:log4j-core:2.17.0'
+    implementation 'org.javacord:javacord-core:3.7.0'
 }
 
 test {
     useJUnitPlatform()
 }
+
+processResources {
+    doLast {
+        // add version.txt with the current version
+        new File("${project.buildDir}/resources/main/version.txt").setText(project.version + '\n'
+                + System.currentTimeMillis() + '\n'
+                + System.getProperty('java.version'),
+                StandardCharsets.UTF_8.displayName())
+    }
+}
+
+jar {
+    manifest {
+        attributes('Implementation-Title': rootProject.name,
+                'Implementation-Version': project.version,
+                'Built-Date': new Date(),
+                'Built-JDK': System.getProperty('java.version'),
+                'Class-Path': configurations.runtimeClasspath.files.collect { it.name }.join(' '),
+                'Main-Class': project.group + '.Main'
+        )
+    }
+}
+
+/*jar {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    manifest {
+        attributes (
+                'Implementation-Title': rootProject.name,
+                'Implementation-Version': project.version,
+                'Class-Path': configurations.runtimeClasspath.collect { it.getName() }.join(' '),
+                'Main-Class': project.group + '.Main',
+        )
+    }
+}
+
+tasks.register('uberJar', Jar) {
+    archiveClassifier = 'uber'
+
+    from sourceSets.main.output
+
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.removeIf { it.name.
+                endsWith('') }.
+                collect {
+            zipTree(it) }
+    }
+}*/
+
+/*shadowJar {
+    configurations = [project.configurations.runtimeClasspath]
+    minimize()
+    manifest {
+        attributes (
+                'Implementation-Title': rootProject.name,
+                'Implementation-Version': project.version,
+                'Class-Path': project.configurations.runtimeClasspath.collect { it.getName() }.join
+                (' '),
+                'Main-Class': project.group + '.Main',
+        )
+    }
+}*/
